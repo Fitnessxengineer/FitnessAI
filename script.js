@@ -211,8 +211,7 @@ new controls
     minTrackingConfidence: 0.5,
 })
     .add([
-    new controls.StaticText({ title: 'MediaPipe Pose' }),
-    new controls.Toggle({ title: 'Selfie Mode', field: 'selfieMode' }),
+    new controls.StaticText({ title: 'AI Joint Angle Tracker' }),
     new controls.SourcePicker({
         onSourceChanged: () => {
             // Resets because this model gives better results when reset between
@@ -234,24 +233,6 @@ new controls
             canvasElement.height = height;
             await pose.send({ image: input });
         },
-    }),
-    new controls.Slider({
-        title: 'Model Complexity',
-        field: 'modelComplexity',
-        discrete: ['Lite', 'Full', 'Heavy'],
-    }),
-    new controls.Toggle({ title: 'Smooth Landmarks', field: 'smoothLandmarks' }),
-    new controls.Slider({
-        title: 'Min Detection Confidence',
-        field: 'minDetectionConfidence',
-        range: [0, 1],
-        step: 0.01
-    }),
-    new controls.Slider({
-        title: 'Min Tracking Confidence',
-        field: 'minTrackingConfidence',
-        range: [0, 1],
-        step: 0.01
     }),
 ])
     .on(x => {
